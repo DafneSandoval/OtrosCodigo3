@@ -7,15 +7,17 @@ const productos = [
   {nombre: "Bota azul", tipo: "bota", color: "azul", img: "./bota-azul.jpg"},
   {nombre: "Zapato rojo", tipo: "zapato", color: "rojo", img: "./zapato-rojo.jpg"}
 ]
+const botonDeFiltro = document.getElementById("button-filtro");//Cambio a get element by id//
+const li = document.getElementById("lista-de-productos"); //se cambio a getElement...
+const i = document.getElementById("input-filtro"); //cambio nombre de constante, cambio en la forma de obtener elemento//
 
-const li = document.getElementsByName("lista-de-productos")
-const $i = document.querySelector('.input');
+// se agregaron ;
 
 for (let i = 0; i < productos.length; i++) {
-  var d = document.createElement("div")
+  var d = document.createElement("div");
   d.classList.add("producto")
 
-  var ti = document.createElement("p")
+  var ti = document.createElement("p"); 
   ti.classList.add("titulo")
   ti.textContent = productos[i].nombre
   
@@ -26,17 +28,20 @@ for (let i = 0; i < productos.length; i++) {
   d.appendChild(imagen)
 
   li.appendChild(d)
-}
+}// for // se agregaron ;
 
-displayProductos(productos)
-const botonDeFiltro = document.querySelector("button");
+const displayProductos = (productos) => {
 
+} // se hizo una funcion para que el error de displayProducto, se quite
+displayProductos(productos); //se agrego ;
+
+//* BUTTOM *//
 botonDeFiltro.onclick = function() {
   while (li.firstChild) {
     li.removeChild(li.firstChild);
   }
 
-  const texto = $i.value;
+  const texto = i.value;
   console.log(texto);
   const productosFiltrados = filtrado(productos, texto );
 
